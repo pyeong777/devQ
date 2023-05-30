@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
 
+:root {
+  --my-color: #8aaae5;
+}
+
 * {
   margin: 0;
 }
