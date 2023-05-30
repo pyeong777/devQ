@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap");
 
-body {
+* {
   margin: 0;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 1100px;
   font-family: "Nanum Gothic Coding", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -9,4 +14,12 @@ body {
 
 li {
   list-style: none;
+}
+
+a {
+  text-decoration-line: none;
+}
+
+a:visited {
+  color: black;
 }
