@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Button from "../ui/Button";
 import styles from "./NavBar.module.css";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -13,6 +13,7 @@ export default function NavBar() {
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
   };
+
   return (
     <header>
       <nav className={styles.nav}>
@@ -33,7 +34,13 @@ export default function NavBar() {
         {isToggleOpen ? (
           <ul className={styles.ul}>
             {navmenu.map((menu, index) => (
-              <Link className={styles.link} key={index} to={`/${path[index]}`}>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive ? styles.linkA : styles.link
+                }
+                key={index}
+                to={`/${path[index]}`}
+              >
                 <li
                   className={styles.li}
                   key={index}
@@ -41,7 +48,7 @@ export default function NavBar() {
                 >
                   {menu}
                 </li>
-              </Link>
+              </NavLink>
             ))}
             <li className={styles.li} onClick={handleToggleOpen}>
               <Button text={"Login"} />
