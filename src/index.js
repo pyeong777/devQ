@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "html", element: <Html /> },
       { path: "css", element: <Css /> },
-      { path: "js", element: <Javascript /> },
+      { path: "javascript", element: <Javascript /> },
       { path: "react", element: <ReactJs /> },
       { path: "cs", element: <ComputerScience /> },
       { path: "ds", element: <DataStructure /> },
