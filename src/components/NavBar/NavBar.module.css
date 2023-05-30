@@ -26,17 +26,24 @@
   width: 100%;
   padding: 0;
   position: absolute;
+  z-index: 99;
   top: 4rem;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  background-color: white;
+  background-color: #fefefe;
 }
 
 .link {
   width: 100%;
   text-align: center;
+}
+
+.linkA {
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: var(--my-color);
 }
 
 .li {
@@ -46,7 +53,7 @@
 }
 
 .li:hover {
-  color: cornflowerblue;
+  color: var(--my-color);
   font-weight: bold;
 }
 
@@ -56,17 +63,17 @@
 }
 
 .fix {
-  color: cornflowerblue;
+  color: var(--my-color);
 }
 
 .react {
-  color: cornflowerblue;
+  color: var(--my-color);
 }
 
 .h1 {
   font-size: 2rem;
   line-height: 1.4;
-  color: cornflowerblue;
+  color: var(--my-color);
 }
 
 .button {
