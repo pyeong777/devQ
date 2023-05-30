@@ -5,6 +5,7 @@ export const navmenu = [
   "React",
   "CS",
   "자료구조",
+  "문의사항",
   "북마크",
 ];
 
