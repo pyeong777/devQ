@@ -6,12 +6,23 @@ import { DiReact } from "react-icons/di";
 import { FiX } from "react-icons/fi";
 import { navmenu, path } from "./../../constants/constants";
 import { useState } from "react";
+import { login, logout } from "../../api/firebase";
 
 export default function NavBar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
 
   const handleToggleOpen = () => {
     setIsToggleOpen(!isToggleOpen);
+  };
+
+  const [user, setUser] = useState();
+
+  const handleLogin = () => {
+    login().then(setUser);
+  };
+
+  const handleLogout = () => {
+    logout().then(setUser);
   };
 
   return (
@@ -50,9 +61,16 @@ export default function NavBar() {
                 </li>
               </NavLink>
             ))}
-            <li className={styles.li} onClick={handleToggleOpen}>
-              <Button text={"Login"} />
-            </li>
+            {!user && (
+              <li className={styles.li} onClick={handleToggleOpen}>
+                <Button text={"Login"} onClick={handleLogin} />
+              </li>
+            )}
+            {user && (
+              <li className={styles.li} onClick={handleToggleOpen}>
+                <Button text={"Logout"} onClick={handleLogout} />
+              </li>
+            )}
           </ul>
         ) : (
           ""
