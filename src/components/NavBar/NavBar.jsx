@@ -5,8 +5,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { DiReact } from "react-icons/di";
 import { FiX } from "react-icons/fi";
 import { navmenu, path } from "./../../constants/constants";
-import { useState } from "react";
-import { login, logout } from "../../api/firebase";
+import { useEffect, useState } from "react";
+import { login, logout, onUserStateChange } from "../../api/firebase";
 
 export default function NavBar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -17,13 +17,9 @@ export default function NavBar() {
 
   const [user, setUser] = useState();
 
-  const handleLogin = () => {
-    login().then(setUser);
-  };
-
-  const handleLogout = () => {
-    logout().then(setUser);
-  };
+  useEffect(() => {
+    onUserStateChange(setUser);
+  }, []);
 
   return (
     <header>
@@ -63,12 +59,12 @@ export default function NavBar() {
             ))}
             {!user && (
               <li className={styles.li} onClick={handleToggleOpen}>
-                <Button text={"Login"} onClick={handleLogin} />
+                <Button text={"Login"} onClick={login} />
               </li>
             )}
             {user && (
               <li className={styles.li} onClick={handleToggleOpen}>
-                <Button text={"Logout"} onClick={handleLogout} />
+                <Button text={"Logout"} onClick={logout} />
               </li>
             )}
           </ul>
