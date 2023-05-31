@@ -7,6 +7,7 @@ import { FiX } from "react-icons/fi";
 import { navmenu, path } from "./../../constants/constants";
 import { useEffect, useState } from "react";
 import { login, logout, onUserStateChange } from "../../api/firebase";
+import User from "../User/User";
 
 export default function NavBar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -29,11 +30,17 @@ export default function NavBar() {
             <DiReact className={styles.react} size="48" />
             <h1 className={styles.h1}>devQ</h1>
           </Link>
-          <div className={styles.hamburger} onClick={handleToggleOpen}>
+
+          <div className={styles.hamburger}>
+            {user && <User user={user} />}
             {isToggleOpen ? (
-              <FiX className={styles.fix} size="24" />
+              <FiX
+                className={styles.fix}
+                size="26"
+                onClick={handleToggleOpen}
+              />
             ) : (
-              <RxHamburgerMenu size="24" />
+              <RxHamburgerMenu size="26" onClick={handleToggleOpen} />
             )}
           </div>
         </div>
