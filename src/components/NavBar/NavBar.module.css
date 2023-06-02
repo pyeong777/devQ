@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  margin: 0 auto;
   padding: 0;
   position: absolute;
   z-index: 99;
@@ -43,7 +43,7 @@
   width: 100%;
   text-align: center;
   font-weight: bold;
-  color: var(--my-color);
+  color: var(--my-color) !important;
 }
 
 .li {
@@ -61,6 +61,10 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.darkmode {
+  margin: 0 1rem;
 }
 
 .fix {

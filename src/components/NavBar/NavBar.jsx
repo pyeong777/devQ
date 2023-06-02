@@ -5,9 +5,12 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { DiReact } from "react-icons/di";
 import { FiX } from "react-icons/fi";
 import { navmenu, path } from "./../../constants/constants";
-import { useEffect, useState } from "react";
-import { login, logout, onUserStateChange } from "../../api/firebase";
+import { useState } from "react";
 import User from "../User/User";
+import { useAuthContext } from "../context/AuthContext";
+import { BsFillMoonFill } from "react-icons/bs";
+import { BsSun } from "react-icons/bs";
+import { useDarkModeContext } from "../context/DarkModeContext";
 
 export default function NavBar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
@@ -16,11 +19,8 @@ export default function NavBar() {
     setIsToggleOpen(!isToggleOpen);
   };
 
-  const [user, setUser] = useState();
-
-  useEffect(() => {
-    onUserStateChange(setUser);
-  }, []);
+  const { user, login, logout } = useAuthContext();
+  const { darkMode, toggleDarkMode } = useDarkModeContext();
 
   return (
     <header>
@@ -33,15 +33,17 @@ export default function NavBar() {
 
           <div className={styles.hamburger}>
             {user && <User user={user} />}
-            {isToggleOpen ? (
-              <FiX
-                className={styles.fix}
-                size="26"
-                onClick={handleToggleOpen}
-              />
-            ) : (
-              <RxHamburgerMenu size="26" onClick={handleToggleOpen} />
-            )}
+            <div className={styles.darkmode} onClick={toggleDarkMode}>
+              {darkMode ? <BsSun size="24" /> : <BsFillMoonFill size="24" />}
+            </div>
+
+            <div onClick={handleToggleOpen}>
+              {isToggleOpen ? (
+                <FiX className={styles.fix} size="26" />
+              ) : (
+                <RxHamburgerMenu size="26" />
+              )}
+            </div>
           </div>
         </div>
 
