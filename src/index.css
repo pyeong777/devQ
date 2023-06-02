@@ -2,6 +2,17 @@
 
 :root {
   --my-color: #8aaae5;
+  --bg-color: #f5f7f8;
+  --text-color: black;
+  --bg-answer-color: #ffffff;
+  --bg-move-color: #f5f7f8;
+}
+
+html.dark {
+  --bg-color: #272829;
+  --bg-answer-color: #313233;
+  --text-color: #fefefe;
+  --bg-move-color: #272829;
 }
 
 * {
@@ -24,4 +35,21 @@ li {
 a {
   text-decoration-line: none;
   color: black;
+}
+
+.dark body {
+  color: white;
+  background-color: #1e1e20;
+}
+
+.dark ul {
+  background-color: #1e1e20;
+}
+
+.dark a {
+  color: white;
+}
+
+.dark button {
+  filter: saturate(90%);
 }
