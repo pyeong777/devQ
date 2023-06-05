@@ -7,10 +7,10 @@ import { FiX } from "react-icons/fi";
 import { navmenu, path } from "./../../constants/constants";
 import { useState } from "react";
 import User from "../User/User";
-import { useAuthContext } from "../context/AuthContext";
 import { BsFillMoonFill } from "react-icons/bs";
 import { BsSun } from "react-icons/bs";
-import { useDarkModeContext } from "../context/DarkModeContext";
+import { useAuthContext } from "../../context/AuthContext";
+import { useDarkModeContext } from "../../context/DarkModeContext";
 
 export default function NavBar() {
   const [isToggleOpen, setIsToggleOpen] = useState(false);
