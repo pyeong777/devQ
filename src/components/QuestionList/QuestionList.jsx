@@ -4,7 +4,11 @@ import Button from "../ui/Button";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 import { VscTriangleLeft, VscTriangleRight } from "react-icons/vsc";
 import { useAuthContext } from "../../context/AuthContext";
-import { addToBookMark, removeFromBookMark } from "../../api/firebase";
+import {
+  addToBookMark,
+  getIsBookMark,
+  removeFromBookMark,
+} from "../../api/firebase";
 
 export default function QuestionList({ itemList }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,22 +57,23 @@ export default function QuestionList({ itemList }) {
 
   const id = array[index].item && array[index].item.id;
 
-  const [isMark, setIsMark] = useState(false);
+  // const [isMark, setIsMark] = useState(false);
 
-  //북마크에 추가
-  const handleBookMark = () => {
-    const quest = { answer: answerList, question: questionList, id };
-    addToBookMark(uid, quest);
-    // removeFromBookMark(uid, quest.id);
-  };
-
+  // const handleBookMark = () => {
+  //   const quest = { answer: answerList, question: questionList, id };
+  //   addToBookMark(uid, quest);
+  //   removeFromBookMark(uid, quest.id);
+  // };
+  console.log(getIsBookMark(uid, id));
   return (
     <>
       <article className={styles.article}>
         <section className={styles.question}>
           <div>{questionList}</div>
-          <div className={styles.bookmark} onClick={handleBookMark}>
-            {isMark ? <BsBookmark size="20" /> : <BsBookmarkFill size="20" />}
+          {/* <div className={styles.bookmark} onClick={handleBookMark}> */}
+          <div className={styles.bookmark}>
+            {/* {isMark ? <BsBookmark size="20" /> : <BsBookmarkFill size="20" />} */}
+            <BsBookmark size="20" />
           </div>
         </section>
         <section className={styles.answer}>
