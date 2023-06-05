@@ -64,7 +64,6 @@ export default function QuestionList({ itemList }) {
   //   addToBookMark(uid, quest);
   //   removeFromBookMark(uid, quest.id);
   // };
-  console.log(getIsBookMark(uid, id));
   return (
     <>
       <article className={styles.article}>
