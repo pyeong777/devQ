@@ -2,9 +2,9 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import { raven } from "./constants/raven";
-import { AuthContextProvider } from "./components/context/AuthContext";
-import { DarkModeProvider } from "./components/context/DarkModeContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AuthContextProvider } from "./context/AuthContext";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 const queryClient = new QueryClient();
 
